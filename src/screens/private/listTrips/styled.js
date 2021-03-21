@@ -21,6 +21,7 @@ export const ListContainer = styled.div`
 
 export const TripsContainer = styled.div`
   overflow: auto;
+  line-height: 1.6rem;
   text-align: center;
   background-color: ${mainLightBlue};
   border-radius: 10px;
@@ -30,12 +31,12 @@ export const TripsContainer = styled.div`
 
 export const NameTrip = styled.h3`
   color: ${mainDarkOrange};
-  padding: 1% 4%;
+  padding: 10% 2% 3% 2%;
 `
 
 export const InfoTrip = styled.p`
   color: ${mainDarkGray};
   font-size: 14px;
   text-align: center;
-  padding: 1%;
+  padding: 0 4% 4% 5%;
 `

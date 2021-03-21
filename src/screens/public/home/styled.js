@@ -8,13 +8,15 @@ export const HomeContainer = styled.div`
    display: inline;
    margin: 0;
    padding-bottom: 0;
+   height: 100%;
+   width: 100%;
 `
 
 export const MainContainer = styled.main`
    text-align: center;
    padding-top: 4%;
    padding-left: 5%;
-   height: 65vh;
+   height: 70vh;
 `
 
 export const AnimationContainer = styled.div`

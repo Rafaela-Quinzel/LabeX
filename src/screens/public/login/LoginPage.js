@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { LoginContainer } from './styled'
 import { ButtonLogin } from '../../../constants/buttons'
 import { InputNewLogin } from '../../../constants/inputs'
-import { useForm } from '../../../services/useForm'
-import { useHistory, useParams } from 'react-router-dom'
+import { useForm } from '../../../hooks/useForm'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import { axiosConfig, BASE_URL } from '../../../constants/RequestConfig'
 
 
 function LoginPage() {
@@ -13,40 +14,21 @@ function LoginPage() {
         password: ''
     })
     
-
-    const pathParams = useParams()
-    const id = pathParams.id
     const history = useHistory()
-    
-    
+
     const onSubmitForm = (event) => {
-        event.preventDefault();
+        event.preventDefault()
     }
 
-
-    useEffect(() => {
-        const token = localStorage.getItem('token')
-
-        if(token) {
-            history.push(`/viagens_adm/${id}`)
-        }
-    }, [history, id])
-
-  
     const login = () => {
         const body = {
             email: form.email,
             password: form.password
         }
    
-        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/login',
-        body, {
-            headers: {
-                auth: localStorage.getItem('token')
-            }
-        }).then((response) => {
+        axios.post(`${BASE_URL}/login`, body, axiosConfig).then((response) => {
             localStorage.setItem('token', response.data.token)
-            history.push(`/viagens_adm/${id}`)
+            history.push(`/viagens_adm`)
         }).catch((error) => {
             alert('Login inválido!')
             console.log(error)
@@ -83,4 +65,4 @@ function LoginPage() {
         </LoginContainer>
     )
 }
-export default LoginPage;
+export default LoginPage

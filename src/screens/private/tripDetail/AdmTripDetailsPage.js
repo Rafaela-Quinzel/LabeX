@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { DetailsContainer, DetailsTrip, Candidates, AcceptedCandidates, TitlePage } from './styled'
+import { DetailsContainer, DetailsTrip, Candidates, AcceptedCandidates, TitlePage, CandidatesContainer, AcceptedCandidatesContainer } from './styled'
 import { ButtonAcceptedCandidate, ButtonDeleteCandidate } from '../../../constants/buttons'
-import { useProtectedPage } from '../../../services/useProtectedPage'
+import { useProtectedPage } from '../../../hooks/useProtectedPage'
 import axios from 'axios'
+import { BASE_URL, axiosConfig } from '../../../constants/RequestConfig'
 
 
 
@@ -13,6 +14,7 @@ function AdmTripDetailsPage() {
     const pathParams = useParams()
     const id = pathParams.id
 
+
     useProtectedPage()
 
     useEffect(() => {
@@ -20,33 +22,22 @@ function AdmTripDetailsPage() {
     }, [])
 
 
-    // Ir para os detalhes da viagem selecionada
     const getTripDetails = () => {
-        axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trip/${id}`,
-        {
-            headers: {
-                auth: localStorage.getItem('token')
-            }
-        }).then((response) => {
+        axios.get(`${BASE_URL}/trip/${id}`, axiosConfig).then((response) => {
             setTrip(response.data.trip)
             setCandidates(response.data.trip.candidates)
         }).catch((error) => {
-                console.log(error)
+            console.log(error)
         })
     }
-    
-    // Aceitar candidato
+
+
     const aceptApplication = (candidateId, approve) => {
         const body = {
             approve: approve
         }
         axios
-            .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}/candidates/${candidateId}/decide`,
-            body, {
-                headers: {
-                    auth: localStorage.getItem('token')
-                }
-            })
+            .put(`${BASE_URL}/trips/${id}/candidates/${candidateId}/decide`, body, axiosConfig)
             .then(() => {
                 alert("Candidato aprovado!")
                 getTripDetails()
@@ -56,22 +47,15 @@ function AdmTripDetailsPage() {
             })
     }
 
-    //rejeitar candidato
+
     const rejectApplication = (candidateId, approve) => {
         const body = {
             approve: approve
         }
-        axios
-            .put(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}/candidates/${candidateId}/decide`,
-            body,  {
-                headers: {
-                    auth: localStorage.getItem('token')
-                }
-            })
-            .then(() => {
-                alert("Candidato reprovado!")
-                getTripDetails()
-            })
+        axios.put(`${BASE_URL}/trips/${id}/candidates/${candidateId}/decide`, body, axiosConfig).then(() => {
+            alert("Candidato reprovado!")
+            getTripDetails()
+        })
             .catch((error) => {
                 console.log(error)
             })
@@ -81,45 +65,46 @@ function AdmTripDetailsPage() {
         <DetailsContainer>
             <TitlePage>Detalhes da Viagem:</TitlePage>
             <DetailsTrip>
-            <br/>
-            <Candidates>
-                <h4>Candidaturas:</h4>
-                {trip.candidates && trip.candidates.map(candidate => {
-                    return (
-                        <div key={candidate.id}>
-                           <p>Nome: {candidate.name} </p>
-                           <p>Idade: {candidate.age} </p>
-                           <p>Profissão: {candidate.profession} </p>
-                           <p>País: {candidate.country} </p>
-                           <p>Motivo: 
-                           <br/>
-                               {candidate.applicationText}
-                               </p>
-                           <ButtonAcceptedCandidate onClick={() => aceptApplication(candidate.id, true)}>
-                               ACEITAR
-                            </ButtonAcceptedCandidate>
-                            <ButtonDeleteCandidate onClick={() => rejectApplication(candidate.id, false)}>
-                               RECUSAR
-                            </ButtonDeleteCandidate>
-                        </div>
-                    )})}
-            </Candidates>
-            <AcceptedCandidates>
-                <h4>Candidatos Aprovados:</h4>
-                    {trip.approved && trip.approved.map(candidate => {
+                <br />
+                <CandidatesContainer>
+                    <h4>Candidaturas:</h4>
+                    {trip.candidates && trip.candidates.map(candidate => {
                         return (
-                            <div key={candidate.id}>
-                                <p>Nome: {candidate.name}</p>
-                                <p>Idade: {candidate.age}</p>
-                                <p>Profissão: {candidate.profession}</p>
-                                <p>País: {candidate.country}</p>
-                                <p>Motivo: {candidate.applicationText}</p>
-                            </div>
+                            <Candidates key={candidate.id}>
+                                <p>Nome: {candidate.name} </p>
+                                <p>Idade: {candidate.age} </p>
+                                <p>Profissão: {candidate.profession} </p>
+                                <p>País: {candidate.country} </p>
+                                <p>Motivo:
+                           <br />
+                                    {candidate.applicationText}
+                                </p>
+                                <ButtonAcceptedCandidate onClick={() => aceptApplication(candidate.id, true)}>
+                                    ACEITAR
+                            </ButtonAcceptedCandidate>
+                                <ButtonDeleteCandidate onClick={() => rejectApplication(candidate.id, false)}>
+                                    RECUSAR
+                            </ButtonDeleteCandidate>
+                            </Candidates>
                         )
                     })}
-            </AcceptedCandidates>
+                </CandidatesContainer>
+                <AcceptedCandidatesContainer>
+                    <h4>Candidatos Aprovados:</h4>
+                    {trip.approved && trip.approved.map(user => {
+                        return (
+                            <AcceptedCandidates key={user.id}>
+                                <p>Nome: {user.name}</p>
+                                <p>Idade: {user.age}</p>
+                                <p>Profissão: {user.profession}</p>
+                                <p>País: {user.country}</p>
+                                <p>Motivo: {user.applicationText}</p>
+                            </AcceptedCandidates>
+                        )
+                    })}
+                </AcceptedCandidatesContainer>
             </DetailsTrip>
         </DetailsContainer>
     )
 }
-export default AdmTripDetailsPage;
+export default AdmTripDetailsPage

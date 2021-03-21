@@ -1,9 +1,10 @@
 import React from 'react'
-import { useForm } from '../../../services/useForm'
+import { useForm } from '../../../hooks/useForm'
 import { CreateTripContainer } from './styled'
 import { ButtonSaveTrip } from '../../../constants/buttons'
-import { InputCreateTrip } from '../../../constants/inputs'
+import { InputCreateTrip, TextAreaCreateTrip } from '../../../constants/inputs'
 import axios from 'axios'
+import { axiosConfig, BASE_URL } from '../../../constants/RequestConfig'
 
 
 function CreateTripPage() {
@@ -21,7 +22,7 @@ function CreateTripPage() {
     }
 
     
-    //criar viagem
+   
     const createTrip = (event) => {
         const body = {
             name: form.name,
@@ -33,12 +34,7 @@ function CreateTripPage() {
         
         event.preventDefault()
 
-        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips',
-        body, {
-            headers: {
-                auth: localStorage.getItem('token')
-            }
-        }).then(() => {
+        axios.post(`${BASE_URL}/trips`, body, axiosConfig).then(() => {
             alert('Viagem cadastrada com sucesso!')
         }).catch((error) => {
             alert('Não foi possível cadastrar a viagem!')
@@ -81,12 +77,13 @@ function CreateTripPage() {
                     required
                 />
                 <br/>
-                <InputCreateTrip 
+                <TextAreaCreateTrip 
                     value={form.description} 
                     onChange={onChange}
                     placeholder={'Descrição'} 
                     name={'description'}
                     type={'text'}
+                    maxLength='100'
                     required
                 />
                 <br/>
@@ -105,4 +102,4 @@ function CreateTripPage() {
         </CreateTripContainer>
     )
 }
-export default CreateTripPage;
+export default CreateTripPage

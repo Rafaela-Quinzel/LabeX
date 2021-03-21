@@ -27,6 +27,7 @@ export const ButtonLogin = styled.button`
    border-style: solid;
    color: ${mainWhite};
    border-radius: 6px;
+   cursor: pointer;
 `
 
 export const ButtonAdm = styled.button`
@@ -39,6 +40,7 @@ export const ButtonAdm = styled.button`
    color: ${mainWhite};
    border-radius: 6px;
    border: 0;
+   cursor: pointer;
 `
 
 export const ButtonLogout = styled.button`
@@ -51,6 +53,7 @@ export const ButtonLogout = styled.button`
    color: ${mainWhite};
    border-radius: 6px;
    border: 0;
+   cursor: pointer;
 `
 
 export const ButtonCreateTrip = styled.button`
@@ -63,6 +66,7 @@ export const ButtonCreateTrip = styled.button`
    color: ${mainWhite};
    border-radius: 6px;
    border: 0;
+   cursor: pointer;
 `
 
 export const ButtonSaveTrip = styled.button`
@@ -76,6 +80,7 @@ export const ButtonSaveTrip = styled.button`
    border-style: solid;
    color: ${mainWhite};
    border-radius: 6px;
+   cursor: pointer;
 `
 
 export const ButtonRegisterLogin = styled.button`
@@ -88,6 +93,7 @@ export const ButtonRegisterLogin = styled.button`
    color: ${mainWhite};
    border-radius: 6px;
    border: 0;
+   cursor: pointer;
 `
 
 export const ButtonSaveLogin = styled.button`
@@ -101,6 +107,7 @@ export const ButtonSaveLogin = styled.button`
    border-style: solid;
    color: ${mainWhite};
    border-radius: 6px;
+   cursor: pointer;
 `
 
 export const ButtonDetails = styled.button`
@@ -115,6 +122,7 @@ export const ButtonDetails = styled.button`
    border-style: solid;
    color: ${mainBlue};
    border-radius: 6px;
+   cursor: pointer;
 `
 
 export const ButtonDelete = styled.button`
@@ -127,6 +135,7 @@ export const ButtonDelete = styled.button`
    border-style: solid;
    color: ${mainWhite};
    border-radius: 6px;
+   cursor: pointer;
 `
 
 export const ButtonAcceptedCandidate = styled.button`
@@ -136,9 +145,11 @@ export const ButtonAcceptedCandidate = styled.button`
    padding: 6px;
    background-color: ${mainBlue};
    margin-right: 4%;
+   margin-top: 4%;
    border: 0;
    color: ${mainWhite};
    border-radius: 5px;
+   cursor: pointer;
 `
 
 export const ButtonDeleteCandidate = styled.button`
@@ -150,6 +161,7 @@ export const ButtonDeleteCandidate = styled.button`
    border: 0;
    color: ${mainWhite};
    border-radius: 5px;
+   cursor: pointer;
 `
 
 export const ButtonSubmit = styled.button`
@@ -163,4 +175,5 @@ export const ButtonSubmit = styled.button`
    border-style: solid;
    color: ${mainWhite};
    border-radius: 6px;
+   cursor: pointer;
 `

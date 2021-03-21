@@ -1,13 +1,14 @@
 import React from 'react'
+import axios from 'axios'
 import { LoginContainer } from './styled'
 import { ButtonSaveLogin } from '../../../constants/buttons'
 import { InputLogin } from '../../../constants/inputs'
-import { useForm } from '../../../services/useForm'
+import { useForm } from '../../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
+import { axiosConfig, BASE_URL } from '../../../constants/RequestConfig'
 
 
-function LoginPage() {
+function SignupPage() {
     const [form, onChange] = useForm({
         email: '',
         password: ''
@@ -16,7 +17,7 @@ function LoginPage() {
     const history = useHistory()
 
     const onSubmitForm = (event) => {
-        event.preventDefault();
+        event.preventDefault()
     }
 
 
@@ -28,13 +29,7 @@ function LoginPage() {
 
         event.preventDefault()
    
-        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/signup',
-        body, {
-            headers: {
-                auth: localStorage.getItem('token')
-            }
-        }
-        ).then((response) => {
+        axios.post(`${BASE_URL}/signup`, body, axiosConfig).then((response) => {
             localStorage.setItem('token', response.data.token)
             history.push('/login')
         }).catch((error) => {
@@ -72,4 +67,4 @@ function LoginPage() {
         </LoginContainer>
     )
 }
-export default LoginPage;
+export default SignupPage

@@ -1,8 +1,8 @@
 import React from 'react'
 import { FooterContainer, IconsSocial } from './styled'
-import LogoFacebook from '../assets/icons/facebook.svg';
-import LogoInstagram from '../assets/icons/instagram.svg';
-import LogoTwitter from '../assets/icons/twitter.svg';
+import LogoFacebook from '../assets/icons/facebook.svg'
+import LogoInstagram from '../assets/icons/instagram.svg'
+import LogoTwitter from '../assets/icons/twitter.svg'
 
 
 const Footer = () => {
@@ -14,4 +14,4 @@ const Footer = () => {
         </FooterContainer>
     )
 }
-export default Footer;
+export default Footer

@@ -1,42 +1,43 @@
 import { TripsTitle, ListContainer, TripsContainer, NameTrip, InfoTrip } from '../trips/styled'
 import { ButtonRegister } from '../../../constants/buttons'
-import  { useRequestData }  from '../../../services/useRequestData'
-import  Header  from '../../../components/Header'
-import  Footer  from '../../../components/Footer'
+import { useRequestData } from '../../../hooks/useRequestData'
+import Header from '../../../components/Header'
+import Footer from '../../../components/Footer'
 import { useHistory } from 'react-router-dom'
+import { BASE_URL } from '../../../constants/RequestConfig'
+import CircularIndeterminate from '../../../components/Loading'
 
 
 
 function ListTripsPage() {
 
-    const getTrips = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips', [])
+    const getTrips = useRequestData(`${BASE_URL}/trips`, [])
 
     const history = useHistory()
-
 
     const goToApplicationForm = (id) => {
         history.push(`/inscricao/${id}/apply`)
     }
 
-    return (
+    return getTrips ? (
         <div>
-            <Header/>
+            <Header />
             <TripsTitle>Viagens disponíveis:</TripsTitle>
-            <ListContainer key={getTrips.id}>
+            <ListContainer>
                 {getTrips.map(trip => {
                     return (
-                        <TripsContainer >
-                            <NameTrip> 
-                                {trip.name} 
+                        <TripsContainer key={trip.id}>
+                            <NameTrip>
+                                {trip.name}
                             </NameTrip>
                             <InfoTrip>
-                                <p>Data da viagem: 
-                                   <br/> 
-                                   {trip.date} 
+                                <p>Data da viagem:
+                                   <br />
+                                    {trip.date}
                                 </p>
-                                <p>Descrição: 
-                                   <br/> 
-                                   {trip.description} 
+                                <p>Descrição:
+                                   <br />
+                                    {trip.description}
                                 </p>
                                 <ButtonRegister onClick={() => goToApplicationForm(trip.id)}>
                                     INSCRIÇÃO
@@ -46,8 +47,10 @@ function ListTripsPage() {
                     )
                 })}
             </ListContainer>
-            <Footer/>
+            <Footer />
         </div>
+    ) : (
+        <CircularIndeterminate />
     )
 }
-export default ListTripsPage;
+export default ListTripsPage

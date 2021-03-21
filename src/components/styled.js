@@ -58,10 +58,11 @@ export const FooterContainer = styled.footer`
    background-color: ${mainBlue};
    color: white;
    width: 100%;
-   height: 14vh;
+   height: 15vh;
    display: flex;
    justify-content: center;
    position: absolute;
+   margin: 0;
 `
 
 export const IconsSocial = styled.img`

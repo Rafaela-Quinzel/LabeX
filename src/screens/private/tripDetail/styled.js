@@ -22,19 +22,33 @@ export const TitlePage = styled.h2`
   margin-bottom: 3%;
 `
 
-export const Candidates = styled.div`
+export const CandidatesContainer = styled.div`
   background-color: ${mainLightBlue};
   overflow: auto;
-  padding-bottom: 5%;
+  padding: 5% 0 4% 0;
   width: 40vw;
   max-height: 70vh;
   margin-right: 5%;
 `
 
-export const AcceptedCandidates = styled.div`
+export const Candidates = styled.div`
+  padding: 5% 2% 2% 2%;
+  width: 40vw;
+  max-height: 70vh;
+  margin-right: 5%;
+`
+
+export const AcceptedCandidatesContainer = styled.div`
   background-color: ${mainLightBlue};
   overflow: auto;
-  padding-bottom: 5%;
+  padding: 5% 2% 2% 2%;
   width: 40vw;
   max-height: 70vh;
 `
+
+export const AcceptedCandidates = styled.div`
+  padding: 3%;
+  border-bottom: 1px solid ${mainGray};
+`
+
+

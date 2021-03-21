@@ -2,8 +2,6 @@ import styled from 'styled-components'
 import { mainLightBlue, mainDarkGray } from '../../../constants/colors'
 
 
-
-// Styled ApplicationFormPage
 export const FormContainer = styled.div`
   font-family: 'Roboto', sans-serif;
   background-color: ${mainLightBlue};
@@ -12,6 +10,10 @@ export const FormContainer = styled.div`
   margin: 2% 10%;
   padding: 6% 1%;
   justify-items: center;
+`
+
+export const Title = styled.h3`
+  margin-bottom: 2%;
 `
 
 

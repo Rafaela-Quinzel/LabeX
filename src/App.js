@@ -1,13 +1,15 @@
 import React from 'react'
-// import CreateTripPage from './screens/trips/CreateTripPage';
-import Router from './services/Router'
+import Router from './routes/Router'
+import { BrowserRouter } from 'react-router-dom'
+import './styles/global.css'
 
 
 
 function App() {
   return (
-  <Router/>
-  // <CreateTripPage/> 
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 }
-export default App;
+export default App

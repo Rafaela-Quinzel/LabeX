@@ -1,10 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useForm } from '../../../services/useForm'
-import { FormContainer } from './styled'
+import { useForm } from '../../../hooks/useForm'
+import { FormContainer, Title } from './styled'
 import { ButtonSubmit } from '../../../constants/buttons'
 import { InputRegister } from '../../../constants/inputs'
 import axios from 'axios'
+import { BASE_URL, axiosConfig } from '../../../constants/RequestConfig'
 
 
 
@@ -36,13 +37,7 @@ function ApplicationFormPage() {
 
         event.preventDefault()
    
-        axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/rafaela-dumont/trips/${id}/apply`,
-        body, {
-            headers: {
-                auth: localStorage.getItem('token')
-            }
-        }
-        ).then(() => {
+        axios.post(`${BASE_URL}/trips/${id}/apply`, body, axiosConfig).then(() => {
            alert('cadastro enviado com sucesso!')
         }).catch((error) => {
             alert('Erro ao enviar cadastro!')
@@ -53,7 +48,7 @@ function ApplicationFormPage() {
 
     return (
         <FormContainer>
-            <h3>Formulário de inscrição:</h3>
+            <Title>Formulário de inscrição:</Title>
             <form onSubmit={onSubmitForm}>
             <InputRegister 
                 value={form.name} 
@@ -81,6 +76,7 @@ function ApplicationFormPage() {
                 name={'applicationText'}
                 type={'text'}
                 pattern={"[A-Za-z]{3,}"}
+                maxLength={'70'}
                 required 
             />
             <br/>
