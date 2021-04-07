@@ -45,8 +45,6 @@ Este projeto foi desenvolvido no curso da `Labenu` é um projeto desenvolvido em
    <a href="https://lottiefiles.com/">
       <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/LottieFiles_logo.svg" alt="LottieFiles" width="85" height="30" style="margin: 5px 5px 0 10px"/>
    </a>
-   <a href="https://www.npmjs.com/package/dayjs">
-      <img src="https://user-images.githubusercontent.com/17680888/39081119-3057bbe2-456e-11e8-862c-646133ad4b43.png" alt="Dayjs" width="65" height="25" style="margin: 5px 5px 0 10px"/>
    </a>
    <a href="https://www.npmjs.com/package/axios">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Axios_logo_%282017%29.svg/1200px-Axios_logo_%282017%29.svg.png" alt="Dayjs" width="60" height="20" style="margin: 5px 5px 0 10px"/>
