@@ -1,7 +1,6 @@
 import { TripsTitle, InfoTrip, ListContainer, TripsContainer, NameTrip } from './styled'
 import { useRequestData } from '../../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
-import AdmHeader from '../../../components/AdmHeader'
 import { ButtonDetails, ButtonDelete } from '../../../constants/buttons'
 import axios from 'axios'
 import { BASE_URL } from '../../../constants/RequestConfig'
@@ -46,7 +45,6 @@ function ListTripsPage() {
 
     return getTrips ? (
         <>
-            <AdmHeader />
             <TripsTitle>Viagens cadastradas:</TripsTitle>
             <ListContainer>
                 {getTrips.map(trip => {
