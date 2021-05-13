@@ -14,6 +14,7 @@ export const ButtonRegister= styled.button`
    color: ${mainWhite};
    border-radius: 6px;
    border: 0;
+
 `
 
 export const ButtonLogin = styled.button`
@@ -30,18 +31,7 @@ export const ButtonLogin = styled.button`
    cursor: pointer;
 `
 
-export const ButtonAdm = styled.button`
-   font-family: 'Roboto', sans-serif;
-   font-size: 18px;
-   width: 8vw;
-   padding: 10px;
-   margin-left: 4%;
-   background-color: ${mainOrange};
-   color: ${mainWhite};
-   border-radius: 6px;
-   border: 0;
-   cursor: pointer;
-`
+
 
 export const ButtonLogout = styled.button`
    font-family: 'Roboto', sans-serif;
@@ -177,3 +167,4 @@ export const ButtonSubmit = styled.button`
    border-radius: 6px;
    cursor: pointer;
 `
+

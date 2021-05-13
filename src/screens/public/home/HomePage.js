@@ -25,7 +25,6 @@ function HomePage(){
      
     return (
         <HomeContainer>
-           <Header/>
                <MainContainer>
                    <AnimationContainer>
                         <Lottie options={defaultOptions}
@@ -37,7 +36,6 @@ function HomePage(){
                     </AnimationContainer>
                     <Message>Embarque conosco nessa aventura!</Message>
                </MainContainer>
-           <Footer />
         </HomeContainer>
     )
 }

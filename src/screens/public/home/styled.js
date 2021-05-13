@@ -5,7 +5,7 @@ import { mainWhite, mainGray } from '../../../constants/colors'
 
 // Styled HomePage
 export const HomeContainer = styled.div`
-   display: inline;
+   display: grid;
    margin: 0;
    padding-bottom: 0;
    height: 100%;
