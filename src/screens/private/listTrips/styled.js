@@ -11,12 +11,20 @@ import {
 
 export const MainContainer = styled.div`
   padding-top: 100px;
+
+  @media screen and (min-width: 1024px) {
+    padding-top: 150px;
+  }
 `
 
 export const TripsTitle = styled.h2`
   color: ${mainGray};
   text-align: center;
   font-size: 1.2rem;
+
+  @media screen and (min-width: 1024px) {
+    margin: 25px auto;
+  }
 
   @media screen and (min-width: 1080px) {
     color: ${mainGray};
@@ -32,13 +40,20 @@ export const ListContainer = styled.div`
   width: 84vw;
   margin: 20px auto 10px auto;
 
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    width: 90vw;
+    margin: 50px auto;
+  }
+
   @media screen and (min-width: 1080px) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 20px;
     grid-row-gap: 2em;
     justify-items: center;
-    margin: 4% 1%;
+    margin: 5%;
   }
 `
 
@@ -51,6 +66,11 @@ export const TripsContainer = styled.div`
   width: 100%;
   height: 40vh;
   margin-bottom: 25px;
+
+  @media screen and (min-width: 1024px) {
+    width: 40vw;
+    height: 45vh;
+  }
 
   @media screen and (min-width: 1080px) {
     overflow: auto;
@@ -80,6 +100,10 @@ export const ButtonsContainer = styled.div`
   justify-content: space-around;
   position: relative;
   margin: 10px auto;
+
+  @media screen and (min-width: 1024px) {
+    width: 90%;
+  }
 `
 
 export const ButtonDetails = styled.button`
@@ -94,20 +118,18 @@ export const ButtonDetails = styled.button`
   color: ${mainBlue};
   border-radius: 6px;
   text-transform: uppercase;
+
+  
+  @media screen and (min-width: 1024px) {
+    width: 42%;
+  }
  
 
   @media screen and (min-width: 1080px) {
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.85rem;
     width: 8vw;
     padding: 6px;
     margin-right: 8px;
     margin-top: 15px;
-    background-color: ${mainLightBlue};
-    border-color: ${mainBlue};
-    border-style: solid;
-    color: ${mainBlue};
-    border-radius: 6px;
     cursor: pointer;
   }
 `
@@ -124,17 +146,14 @@ export const ButtonDelete = styled.button`
   border-radius: 6px;
   text-transform: uppercase;
 
+  @media screen and (min-width: 1024px) {
+    width: 42%;
+  }
+
   @media screen and (min-width: 1080px) {
-    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     width: 8vw;
     padding: 6px;
-    background-color: ${mainBlue};
-    border-color: ${mainBlue};
-    border-style: solid;
-    color: ${mainWhite};
-    border-radius: 6px;
     cursor: pointer;
-    text-transform: uppercase;
   }
 `

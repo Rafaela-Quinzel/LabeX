@@ -21,6 +21,12 @@ export const DetailsTrip = styled.div`
   height: 100vh;
   width: 80vw;
   margin: 10px auto 20px auto;
+  border: 1px solid red;
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    /* width: 100%; */
+  }
 
   @media screen and (min-width: 1080px) {
     display: grid;
@@ -44,6 +50,10 @@ export const CandidatesContainer = styled.div`
   padding: 20px 10px;
   width: 100%;
   height: 48vh;
+
+  @media screen and (min-width: 1024px) {
+    width: 30%;
+  }
  
   @media screen and (min-width: 1080px) {
     background-color: ${mainLightBlue};
@@ -68,6 +78,10 @@ export const AcceptedCandidatesContainer = styled.div`
   width: 100%;
   height: 48vh;
 
+  @media screen and (min-width: 1024px) {
+    width: 30%;
+  }
+
   @media screen and (min-width: 1080px) {
     background-color: ${mainLightBlue};
     overflow: auto;
@@ -87,6 +101,10 @@ export const ButtonsContainer = styled.div`
   justify-content: space-around;
   position: relative;
   margin: 10px auto;
+
+  @media screen and (min-width: 1024px) {
+    width: 90%;
+  }
 `
 
 export const ButtonAcceptedCandidate = styled.button`
@@ -101,17 +119,16 @@ export const ButtonAcceptedCandidate = styled.button`
   border-radius: 5px;
   text-transform: uppercase;
 
+  @media screen and (min-width: 1024px) {
+    width: 30%;
+  }
+
 
   @media screen and (min-width: 1080px) {
-    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     width: 8vw;
     padding: 6px;
-    background-color: ${mainBlue};
     margin-top: 20px;
-    border: 0;
-    color: ${mainWhite};
-    border-radius: 5px;
     cursor: pointer;
   }
 `
@@ -128,15 +145,15 @@ export const ButtonDeleteCandidate = styled.button`
   border-radius: 5px;
   text-transform: uppercase;
 
+  @media screen and (min-width: 1024px) {
+    width: 30%;
+    cursor: pointer;
+  }
+
   @media screen and (min-width: 1080px) {
-    font-family: 'Roboto', sans-serif;
     font-size: 12px;
     width: 8vw;
     padding: 6px;
-    background-color: ${mainDarkOrange};
-    border: 0;
-    color: ${mainWhite};
-    border-radius: 5px;
     cursor: pointer;
   }
 `

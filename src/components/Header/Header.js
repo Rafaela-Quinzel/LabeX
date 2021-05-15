@@ -66,7 +66,8 @@ const Header = () => {
                 <S.NavContainer >
                     <S.Menu to='/'>Home</S.Menu>
                     <S.Menu to='/viagens'>Viagens</S.Menu>
-                    <S.ButtonAdm onClick={() => goToLoginPage(history)}>
+                    <S.ButtonAdm
+                        onClick={() => goToLoginPage(history)}>
                         adm
                     </S.ButtonAdm>
                 </S.NavContainer>
@@ -76,9 +77,21 @@ const Header = () => {
                             <i className="fas fa-times"></i>
                         </S.ButtonCloseMenu>
                         <S.MenuContainer >
-                            <S.Menu to='/' onClick={closeMenu}>Home</S.Menu>
-                            <S.Menu to='/viagens' onClick={closeMenu}>Viagens</S.Menu>
-                            <S.ButtonAdm onClick={() => handleClose('adm')}>
+                            <S.Menu
+                                to='/'
+                                onClick={closeMenu}
+                            >
+                                Home
+                            </S.Menu>
+                            <S.Menu
+                                to='/viagens'
+                                onClick={closeMenu}
+                            >
+                                Viagens
+                            </S.Menu>
+                            <S.ButtonAdm
+                                onClick={() => handleClose('adm')}
+                            >
                                 adm
                             </S.ButtonAdm>
                         </S.MenuContainer>
@@ -103,12 +116,14 @@ const Header = () => {
                     >
                         Viagens
                     </S.Menu>
-                    <S.Menu to='/criar_viagens'
+                    <S.Menu
+                        to='/criar_viagens'
                         style={{ fontSize: '16px', margin: '12px 16px 0 0' }}
                     >
                         Adicionar
                     </S.Menu>
-                    <S.Menu to='/cadastrar_login'
+                    <S.Menu
+                        to='/cadastrar_login'
                         style={{ fontSize: '16px', margin: '12px 16px 0 0' }}
                     >
                         cadastro

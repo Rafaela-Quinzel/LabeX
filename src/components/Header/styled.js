@@ -213,12 +213,18 @@ export const ButtonLogout = styled.button`
    border-radius: 6px;
    border: 0;
    text-transform: uppercase;
+  
 
-   @media screen and (min-width: 1080px) {
-      width: 8vw;
-      padding: 15px;
-      margin-right: 0%;
+   @media screen and (min-width: 1024px) {
+      width: 10vw;
+      height: 5vh;
       cursor: pointer;
+      text-align: center;
+      
+      &:hover {
+         filter: brightness(0.8);
+         transition: filter 0.5s;
+      }
    }
 `
 
