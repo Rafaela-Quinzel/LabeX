@@ -12,7 +12,7 @@ import AdmSignupPage from '../screens/private/signup/AdmSignupPage'
 function Router() {
    return (
       <Switch>
-         <Route exact path="/home">
+         <Route exact path="/">
             <HomePage />
          </Route>
          <Route exact path="/login">
@@ -35,9 +35,6 @@ function Router() {
          </Route>
          <Route exact path="/criar_viagens">
             <AdmCreateTripPage />
-         </Route>
-         <Route>
-            <HomePage />
          </Route>
       </Switch>
    )

@@ -1,56 +1,59 @@
-import { TripsTitle, ListContainer, TripsContainer, NameTrip, InfoTrip } from '../trips/styled'
-import { ButtonRegister } from '../../../constants/buttons'
+import { Fragment } from 'react'
+import * as S from '../trips/styled'
 import { useRequestData } from '../../../hooks/useRequestData'
-import Header from '../../../components/Header'
-import Footer from '../../../components/Footer'
 import { useHistory } from 'react-router-dom'
 import { BASE_URL } from '../../../constants/RequestConfig'
-import CircularIndeterminate from '../../../components/Loading'
+import CircularIndeterminate from '../../../components/Loading/Loading'
+import { goToApplicationForm } from '../../../routes/coordinator'
 
 
 
 function ListTripsPage() {
+    window.document.title = "LabeX | Viagens disponíveis"
 
     const getTrips = useRequestData(`${BASE_URL}/trips`, [])
 
     const history = useHistory()
 
-    const goToApplicationForm = (id) => {
-        history.push(`/inscricao/${id}/apply`)
-    }
-
-    return getTrips ? (
-        <div>
-            <Header />
-            <TripsTitle>Viagens disponíveis:</TripsTitle>
-            <ListContainer>
-                {getTrips.map(trip => {
-                    return (
-                        <TripsContainer key={trip.id}>
-                            <NameTrip>
-                                {trip.name}
-                            </NameTrip>
-                            <InfoTrip>
-                                <p>Data da viagem:
+    return (
+        <S.MainContainer>
+            <S.TripsTitle>Viagens disponíveis:</S.TripsTitle>
+            <S.ListContainer>
+                {getTrips.length === 0 ? <CircularIndeterminate /> : (
+                    <Fragment>
+                        {getTrips.map(trip => {
+                            if (trip.length === 0) {
+                                return <p>Nenhuma viagens disponível no momento.</p>
+                            }
+                            return (
+                                <S.TripsContainer key={trip.id}>
+                                    <S.NameTrip>
+                                        {trip.name}
+                                    </S.NameTrip>
+                                    <S.InfoTrip>
+                                        <p>Data da viagem:
                                    <br />
-                                    {trip.date}
-                                </p>
-                                <p>Descrição:
+                                            {trip.date}
+                                        </p>
+                                        <p>Descrição:
                                    <br />
-                                    {trip.description}
-                                </p>
-                                <ButtonRegister onClick={() => goToApplicationForm(trip.id)}>
-                                    INSCRIÇÃO
-                                </ButtonRegister>
-                            </InfoTrip>
-                        </TripsContainer>
-                    )
-                })}
-            </ListContainer>
-            <Footer />
-        </div>
-    ) : (
-        <CircularIndeterminate />
+                                            {trip.description}
+                                        </p>
+                                        <S.ButtonContainer>
+                                            <S.ButtonRegister
+                                                onClick={() => goToApplicationForm(trip.id, history)}
+                                            >
+                                                INSCRIÇÃO
+                                            </S.ButtonRegister>
+                                        </S.ButtonContainer>
+                                    </S.InfoTrip>
+                                </S.TripsContainer>
+                            )
+                        })}
+                    </Fragment>
+                )}
+            </S.ListContainer>
+        </S.MainContainer>
     )
 }
 export default ListTripsPage

@@ -1,14 +1,14 @@
 import React from 'react'
 import axios from 'axios'
-import { LoginContainer } from './styled'
-import { ButtonSaveLogin } from '../../../constants/buttons'
-import { InputLogin } from '../../../constants/inputs'
+import * as S from './styled'
 import { useForm } from '../../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
 import { axiosConfig, BASE_URL } from '../../../constants/RequestConfig'
 
 
 function SignupPage() {
+    window.document.title = "LabeX | Cadastrar Login"
+
     const [form, onChange] = useForm({
         email: '',
         password: ''
@@ -38,10 +38,10 @@ function SignupPage() {
     }
 
     return (
-        <LoginContainer>
-            <form onSubmit={onSubmitForm}>
-            <h3>Cadastrar Login:</h3>
-            <InputLogin 
+        <S.LoginContainer>
+            <S.Form onSubmit={onSubmitForm}>
+            <S.Title>Cadastrar Login:</S.Title>
+            <S.InputLogin 
             value={form.email} 
             onChange={onChange}
             placeholder={'E-mail'}
@@ -50,8 +50,7 @@ function SignupPage() {
             pattern={'[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}'}
             required
         />
-            <br />
-        <InputLogin 
+        <S.InputLogin 
             value={form.password} 
             onChange={onChange}
             placeholder={'Senha'}
@@ -59,12 +58,11 @@ function SignupPage() {
             type={'password'}
             required
         />
-            <br/>
-        <ButtonSaveLogin onClick={newLogin}>
-            SALVAR
-        </ButtonSaveLogin>
-        </form>
-        </LoginContainer>
+        <S.ButtonSaveLogin onClick={newLogin}>
+            Salvar
+        </S.ButtonSaveLogin>
+        </S.Form>
+        </S.LoginContainer>
     )
 }
 export default SignupPage

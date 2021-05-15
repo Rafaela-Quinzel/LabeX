@@ -1,15 +1,15 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useForm } from '../../../hooks/useForm'
-import { FormContainer, Title } from './styled'
-import { ButtonSubmit } from '../../../constants/buttons'
-import { InputRegister } from '../../../constants/inputs'
+import * as S from './styled'
 import axios from 'axios'
 import { BASE_URL, axiosConfig } from '../../../constants/RequestConfig'
 
 
 
 function ApplicationFormPage() {
+    window.document.title = "LabeX | Cadastro"
+
     const [form, onChange] = useForm({
         name: '', 
         age: '', 
@@ -47,10 +47,10 @@ function ApplicationFormPage() {
 
 
     return (
-        <FormContainer>
-            <Title>Formulário de inscrição:</Title>
-            <form onSubmit={onSubmitForm}>
-            <InputRegister 
+        <S.FormContainer>
+            <S.Title>Formulário de inscrição:</S.Title>
+            <S.Form onSubmit={onSubmitForm}>
+            <S.InputRegister 
                 value={form.name} 
                 onChange={onChange}
                 placeholder={'Nome'} 
@@ -59,8 +59,7 @@ function ApplicationFormPage() {
                 pattern={"[A-Za-z]{3,}"}
                 required
             />
-            <br/>
-            <InputRegister 
+            <S.InputRegister 
                 value={form.age} 
                 onChange={onChange} 
                 placeholder={'Idade'}
@@ -68,8 +67,7 @@ function ApplicationFormPage() {
                 type={'number'}
                 required 
             />
-            <br/>
-            <InputRegister 
+            <S.InputRegister 
                 value={form.applicationText} 
                 onChange={onChange}
                 placeholder={'Motivo'}
@@ -79,8 +77,7 @@ function ApplicationFormPage() {
                 maxLength={'70'}
                 required 
             />
-            <br/>
-            <InputRegister 
+            <S.InputRegister 
                 value={form.profession} 
                 onChange={onChange}
                 placeholder={'Profissão'} 
@@ -88,8 +85,7 @@ function ApplicationFormPage() {
                 type={'text'}
                 required
             />
-            <br/>
-            <InputRegister 
+            <S.InputRegister 
                 value={form.country} 
                 onChange={onChange}
                 placeholder={'País onde reside'}
@@ -97,12 +93,11 @@ function ApplicationFormPage() {
                 type={'text'}
                 required 
             />
-            <br/>
-            <ButtonSubmit onClick={singUpTrip}>
-                ENVIAR INSCRIÇÃO
-            </ButtonSubmit>
-            </form>
-        </FormContainer>
+            <S.ButtonSubmit onClick={singUpTrip}>
+                Enviar inscrição
+            </S.ButtonSubmit>
+            </S.Form>
+        </S.FormContainer>
     )
 }
 export default ApplicationFormPage;

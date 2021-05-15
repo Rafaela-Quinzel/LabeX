@@ -1,40 +1,24 @@
 import styled from 'styled-components'
-import { mainWhite, mainGray } from '../../../constants/colors'
+import { mainGray } from '../../../constants/colors'
 
 
 
-// Styled HomePage
 export const HomeContainer = styled.div`
-   display: grid;
-   margin: 0;
-   padding-bottom: 0;
-   height: 100%;
-   width: 100%;
-`
-
-export const MainContainer = styled.main`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    text-align: center;
-   padding-top: 4%;
-   padding-left: 5%;
-   height: 70vh;
+   height: 100vh;
 `
 
 export const AnimationContainer = styled.div`
-   margin-top: 0%;
-   margin-bottom: 0%;
+   margin: 140px auto 0 auto;
 `
 
 export const Message = styled.h1`
    color: ${mainGray};
+   font-size: 1.5rem;
+   margin: 12px auto 0 auto;
 `
-
-export const ButtonSignUp = styled.button`
-   width: 10vw;
-   padding: 10px;
-   margin-right: 4%;
-   background-color: blue;
-   color: ${mainWhite};
-`
-
 
 

@@ -1,42 +1,39 @@
 import React, { useState } from 'react'
-import { HomeContainer, MainContainer, AnimationContainer, Message } from './styled'
-import  Header  from '../../../components/Header'
-import  Footer  from '../../../components/Footer'
-import Lottie from 'react-lottie';
+import * as S from './styled'
+import Lottie from 'react-lottie'
 import animationData from '../../../animation/animation.json' //animação
 
 
 
-function HomePage(){
+function HomePage() {
+    window.document.title = "LabeX | Home"
     //animação
-    const [ animationState, setAnimationState ] = useState({
+    const [animationState] = useState({
         isStopped: false, isPaused: false
     })
 
     const defaultOptions = {
         loop: true,
-        autoplay: true, 
+        autoplay: true,
         animationData: animationData,
         rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice'
+            preserveAspectRatio: 'xMidYMid slice'
         }
-      };
-    
-     
+    }
+
+
     return (
-        <HomeContainer>
-               <MainContainer>
-                   <AnimationContainer>
-                        <Lottie options={defaultOptions}
-                        height={250}
-                        width={250}
-                        isStopped={animationState.isStopped}
-                        isPaused={animationState.isPaused}
-                    />
-                    </AnimationContainer>
-                    <Message>Embarque conosco nessa aventura!</Message>
-               </MainContainer>
-        </HomeContainer>
+        <S.HomeContainer>
+            <S.AnimationContainer>
+                <Lottie options={defaultOptions}
+                    height={250}
+                    width={250}
+                    isStopped={animationState.isStopped}
+                    isPaused={animationState.isPaused}
+                />
+            </S.AnimationContainer>
+            <S.Message>Embarque conosco nessa aventura!</S.Message>
+        </S.HomeContainer>
     )
 }
 export default HomePage

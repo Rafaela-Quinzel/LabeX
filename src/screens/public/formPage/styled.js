@@ -1,5 +1,10 @@
 import styled from 'styled-components'
-import { mainLightBlue, mainDarkGray } from '../../../constants/colors'
+import {
+  mainLightBlue,
+  mainDarkGray,
+  mainBlue,
+  mainWhite
+} from '../../../constants/colors'
 
 
 export const FormContainer = styled.div`
@@ -7,14 +12,60 @@ export const FormContainer = styled.div`
   background-color: ${mainLightBlue};
   color: ${mainDarkGray};
   text-align: center;
-  margin: 2% 10%;
-  padding: 6% 1%;
-  justify-items: center;
+  padding: 100px 0 10px 0;
+  
 `
 
 export const Title = styled.h3`
   margin-bottom: 2%;
 `
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 85vw;
+  margin: 25px auto 0 auto;
+`
+
+export const InputRegister = styled.input`
+  border: none;
+  background-color: none;
+  width: 100%;
+  height: 8vh;
+  margin-bottom: 20px;
+  padding: 10px;
+`
+
+export const ButtonSubmit = styled.button`
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  width: 55vw;
+  padding: 10px;
+  margin: 10px auto 0 auto;
+  background-color: ${mainBlue};
+  border-color: ${mainBlue};
+  border-style: solid;
+  color: ${mainWhite};
+  border-radius: 6px;
+  text-transform: uppercase;
+
+
+  @media screen and (min-width: 1080px) {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    width: 50vw;
+    padding: 10px;
+    margin: 10px auto 0 auto;
+    background-color: ${mainBlue};
+    border-color: ${mainBlue};
+    border-style: solid;
+    color: ${mainWhite};
+    border-radius: 6px;
+    cursor: pointer;
+  }
+`
+
 
 
 
