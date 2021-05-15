@@ -12,8 +12,7 @@ export const FormContainer = styled.div`
   background-color: ${mainLightBlue};
   color: ${mainDarkGray};
   text-align: center;
-  padding: 100px 0 10px 0;
-  
+  padding: 180px 0 10px 0; 
 `
 
 export const Title = styled.h3`
@@ -26,6 +25,16 @@ export const Form = styled.form`
   height: 100vh;
   width: 85vw;
   margin: 25px auto 0 auto;
+
+  @media screen and (min-width: 600px) {
+    width: 52vw;
+    font-size: 0.9rem;
+  }
+
+  @media screen and (min-width: 1300px) {
+    width: 42vw;
+    font-size: 0.9rem;
+  }
 `
 
 export const InputRegister = styled.input`
@@ -50,19 +59,26 @@ export const ButtonSubmit = styled.button`
   border-radius: 6px;
   text-transform: uppercase;
 
+  @media screen and (min-width: 768px) {
+    width: 35vw;
+    height: 6vh;
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 25vw;
+    height: 6vh;
+  }
 
   @media screen and (min-width: 1080px) {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
     width: 50vw;
     padding: 10px;
     margin: 10px auto 0 auto;
-    background-color: ${mainBlue};
-    border-color: ${mainBlue};
-    border-style: solid;
-    color: ${mainWhite};
-    border-radius: 6px;
     cursor: pointer;
+  }
+
+  @media screen and (min-width: 1300px) {
+    width: 20vw;
+    font-size: 1rem;
   }
 `
 

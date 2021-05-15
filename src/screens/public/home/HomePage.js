@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import * as S from './styled'
 import Lottie from 'react-lottie'
 import animationData from '../../../animation/animation.json' //animação
+import { useUnProtectedPage } from '../../../hooks/useUnProtectedPage'
 
 
 
 function HomePage() {
     window.document.title = "LabeX | Home"
+
+    useUnProtectedPage()
     //animação
     const [animationState] = useState({
         isStopped: false, isPaused: false

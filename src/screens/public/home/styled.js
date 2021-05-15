@@ -6,13 +6,14 @@ import { mainGray } from '../../../constants/colors'
 export const HomeContainer = styled.div`
    display: flex;
    flex-direction: column;
-   align-items: center;
    text-align: center;
+   justify-content: center;
    height: 100vh;
 `
 
 export const AnimationContainer = styled.div`
-   margin: 140px auto 0 auto;
+   margin: 0 auto;
+
 `
 
 export const Message = styled.h1`

@@ -17,22 +17,31 @@ export const HeaderContainer = styled.header`
    position: fixed;
    z-index: 10;
 
-   @media screen and (min-width: 1080px) {
+   @media screen and (min-width: 600px) {
+      height: 12vh;
+   }
+
+   @media screen and (min-width: 1024px) {
       height: 14vh;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
    }
 `
 
 export const Logo = styled.img`
-   width: 85px;
+   width: 80px;
    margin: 15px 55px 2px 18px;
 
-   @media screen and (min-width: 1080px) {
-      width: 150px;
-      margin: 0 12% 0 0;
+   @media screen and (min-width: 600px) {
+      width: 110px;
    }
+
+   @media screen and (min-width: 1024px) {
+      width: 140px;
+      margin: 0 8% 0 4%;
+   }
+
 `
 
 export const MenuContainer = styled.div`
@@ -45,9 +54,28 @@ export const MenuContainer = styled.div`
    padding: 8px;
    margin: 10px 0 0 0;
    position: absolute;
-   
 
-   @media screen and (min-width: 1080px) {
+   @media screen and (min-width: 1024px) {
+      display: none;
+   }
+`
+
+export const MenuAdmContainer = styled.div`
+   display: grid;
+   align-items: center;
+   background: ${mainDarkGray};
+   z-index: 1;
+   width: 100vw;
+   height: 35vh;
+   padding: 8px;
+   margin: 10px 0 0 0;
+   position: absolute;
+
+   @media screen and (min-width: 600px) {
+      height: 45vh;
+   }
+
+   @media screen and (min-width: 1024px) {
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -58,6 +86,30 @@ export const MenuContainer = styled.div`
 
    }
 `
+
+export const NavContainer = styled.div`
+   display: none;
+
+   @media screen and (min-width: 1024px) {
+      display: flex;
+      align-items: center;
+      background: none;
+      max-width: 450px;
+      height: 50px;
+      float: right;
+      margin: 0 2% 0 15%;
+   }
+
+   @media screen and (min-width: 1080px) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: none;
+      max-width: 500px;
+      height: 50px;
+   }
+`
+
 
 export const Menu = styled(Link)`
    font-family: 'Roboto', sans-serif;
@@ -72,21 +124,21 @@ export const Menu = styled(Link)`
    text-transform: uppercase;
    transition: .8s ease;
 
-   &:focus {
-      color: orange;
-   }
 
-   @media screen and (min-width: 1080px) {
+   @media screen and (min-width: 1024px) {
       font-family: 'Roboto', sans-serif;
       cursor: pointer;
       text-decoration: none;
-      font-size: 16px;
-      margin-right: 4%;
+      font-size: 1.2rem;
       color: ${mainWhite};
       height: 20px;
-      
+      width: 150px;
+      margin: 0 auto;
+      border-bottom: none;
+  
       &:hover {
-        border-bottom: 3px solid orange;
+        border-bottom: 2px solid orange;
+        color: orange;
       }
    }
 `
@@ -102,13 +154,17 @@ export const ButtonAdm = styled.button`
    border-radius: 6px;
    border: 0;
    text-transform: uppercase;
+
+   @media screen and (min-width: 600px) {
+      height: 6vh;
+      width: 25vw;
+   }
   
-   @media screen and (min-width: 1080px) {
-      display: block;
-      width: 10vw;
+   @media screen and (min-width: 1024px) {
+      width: 20vw;
       height: 5vh;
+      margin-left: 8%;
       cursor: pointer;
-      margin-left: 4%;
 
       &:hover {
          filter: brightness(0.8);
@@ -127,10 +183,9 @@ export const ButtonOpenMenu = styled.button`
    font-size: 14px;
    color: white;
 
-   @media screen and (min-width: 1080px) {
+   @media screen and (min-width: 1024px) {
       display: none;
    }
-
 `
 
 export const ButtonCloseMenu = styled.button`
@@ -142,7 +197,7 @@ export const ButtonCloseMenu = styled.button`
    font-size: 28px;
    color: white;
 
-   @media screen and (min-width: 1080px) {
+   @media screen and (min-width: 1024px) {
       display: none;
    }
 `
@@ -157,21 +212,13 @@ export const ButtonLogout = styled.button`
    color: ${mainWhite};
    border-radius: 6px;
    border: 0;
-   cursor: pointer;
    text-transform: uppercase;
 
    @media screen and (min-width: 1080px) {
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
       width: 8vw;
       padding: 15px;
       margin-right: 0%;
-      background-color: ${mainRed};
-      color: ${mainWhite};
-      border-radius: 6px;
-      border: 0;
       cursor: pointer;
-      text-transform: uppercase;
    }
 `
 
@@ -188,17 +235,11 @@ export const ButtonsMenu = styled.button`
    text-transform: uppercase;
 
    @media screen and (min-width: 1080px) {
-      font-family: 'Roboto', sans-serif;
       font-size: 14px;
       width: 12vw;
       padding: 8px;
       margin-right: 15px;
-      background-color: ${mainOrange};
-      color: ${mainWhite};
-      border-radius: 6px;
-      border: 0;
       cursor: pointer;
-      text-transform: uppercase;
    }
 `
 

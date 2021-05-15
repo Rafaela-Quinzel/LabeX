@@ -15,7 +15,7 @@ import {
 
 const Header = () => {
     const [open, setOpen] = useState(false)
-    
+
     const history = useHistory()
 
     function openMenu() {
@@ -63,6 +63,13 @@ const Header = () => {
                 '/inscricao/:id/apply'
             ]}>
                 <S.Logo src={LogoSite} />
+                <S.NavContainer >
+                    <S.Menu to='/'>Home</S.Menu>
+                    <S.Menu to='/viagens'>Viagens</S.Menu>
+                    <S.ButtonAdm onClick={() => goToLoginPage(history)}>
+                        adm
+                    </S.ButtonAdm>
+                </S.NavContainer>
                 {open ? (
                     <Fragment>
                         <S.ButtonCloseMenu onClick={closeMenu}>
@@ -90,12 +97,35 @@ const Header = () => {
                 '/criar_viagens'
             ]}>
                 <S.Logo src={LogoSite} />
+                <S.NavContainer>
+                    <S.Menu to='/viagens_adm'
+                        style={{ fontSize: '16px', margin: '12px 16px 0 0' }}
+                    >
+                        Viagens
+                    </S.Menu>
+                    <S.Menu to='/criar_viagens'
+                        style={{ fontSize: '16px', margin: '12px 16px 0 0' }}
+                    >
+                        Adicionar
+                    </S.Menu>
+                    <S.Menu to='/cadastrar_login'
+                        style={{ fontSize: '16px', margin: '12px 16px 0 0' }}
+                    >
+                        cadastro
+                    </S.Menu>
+                    <S.ButtonLogout
+                        style={{ marginLeft: '0' }}
+                        onClick={() => logOut(history)}
+                    >
+                        Logout
+                    </S.ButtonLogout>
+                </S.NavContainer>
                 {open ? (
                     <Fragment>
                         <S.ButtonCloseMenu onClick={closeMenu}>
                             <i className="fas fa-times"></i>
                         </S.ButtonCloseMenu>
-                        <S.MenuContainer>
+                        <S.MenuAdmContainer>
                             <S.ButtonsMenu
                                 onClick={() => handleClose('ver-viagens')}
                             >
@@ -116,7 +146,7 @@ const Header = () => {
                             >
                                 Logout
                             </S.ButtonLogout>
-                        </S.MenuContainer>
+                        </S.MenuAdmContainer>
                     </Fragment>
                 ) : (
                     <S.ButtonOpenMenu onClick={openMenu}>
