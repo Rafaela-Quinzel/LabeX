@@ -10,6 +10,10 @@ import {
 
 export const MainContainer = styled.div`
   padding-top: 100px;
+
+  @media screen and (min-width: 1024px) {
+    padding-top: 150px;
+  }
 `
 
 export const TripsTitle = styled.h2`
@@ -17,12 +21,27 @@ export const TripsTitle = styled.h2`
   text-align: center;
   font-size: 1.5rem;
   margin: 12px auto;
+
+  @media screen and (min-width: 600px) {
+    font-size: 1.6rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin: 25px auto;
+  }
 `
 
 export const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+ 
+  @media screen and (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    margin-bottom: 5%;
+  }
 
   @media screen and (min-width: 1080px) {
     display: grid;
@@ -43,6 +62,11 @@ export const TripsContainer = styled.div`
   padding: 5% 2% 2% 2%;
   margin: 20px auto;
 
+  @media screen and (min-width: 1024px) {
+    width: 42vw;
+    height: 45vh;
+  }
+
   @media screen and (min-width: 1080px) {
     overflow: auto;
     text-align: center;
@@ -56,8 +80,12 @@ export const TripsContainer = styled.div`
 
 export const NameTrip = styled.h3`
   color: ${mainDarkOrange};
-  padding: 4% 4%;
+  padding: 10px auto;
   font-size: 1.2rem;
+
+  @media screen and (min-width: 600px) {
+    font-size: 1.5rem;
+  }
 
   @media screen and (min-width: 1080px) {
     color: ${mainDarkOrange};
@@ -67,10 +95,14 @@ export const NameTrip = styled.h3`
 
 export const InfoTrip = styled.p`
   color: ${mainDarkGray};
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   text-align: center;
   padding: 3%;
   line-height: 1.8rem;
+
+  @media screen and (min-width: 600px) {
+    font-size: 1rem;
+  }
 
   @media screen and (min-width: 1080px) {
     color: ${mainDarkGray};
@@ -93,11 +125,22 @@ export const ButtonRegister= styled.button`
   font-size: 0.85rem;
   width: 100px;
   padding: 10px;
-  /* margin-top: 12px; */
   background-color: ${mainDarkOrange};
   color: ${mainWhite};
   border-radius: 6px;
   border: 0;
+
+  @media screen and (min-width: 600px) {
+    height: 6vh;
+    width: 22vw;
+    font-size: 0.9rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    height: 6vh;
+    width: 15vw;
+    font-size: 1rem;
+  }
 
   @media screen and (min-width: 1080px) {
     font-family: 'Roboto', sans-serif;

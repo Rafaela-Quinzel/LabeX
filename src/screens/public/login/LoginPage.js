@@ -39,7 +39,7 @@ function LoginPage() {
         <S.LoginContainer>
             <S.Title>Administrador:</S.Title>
             <S.Form onSubmit={onSubmitForm}>
-                <S.InputNewLogin
+                <S.InputLogin
                     value={form.email}
                     onChange={onChange}
                     placeholder={'E-mail'}
@@ -48,7 +48,7 @@ function LoginPage() {
                     pattern={'[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}'}
                     required
                 />
-                <S.InputNewLogin
+                <S.InputLogin
                     value={form.password}
                     onChange={onChange}
                     placeholder={'Senha'}
