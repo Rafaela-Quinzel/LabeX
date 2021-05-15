@@ -1,16 +1,18 @@
-import { TripsTitle, InfoTrip, ListContainer, TripsContainer, NameTrip } from './styled'
+import { Fragment } from 'react'
+import axios from 'axios'
+import * as S from './styled'
 import { useRequestData } from '../../../hooks/useRequestData'
 import { useHistory } from 'react-router-dom'
-import { ButtonDetails, ButtonDelete } from '../../../constants/buttons'
-import axios from 'axios'
 import { BASE_URL } from '../../../constants/RequestConfig'
-import CircularIndeterminate from '../../../components/Loading'
+import CircularIndeterminate from '../../../components/Loading/Loading'
 import { useProtectedPage } from '../../../hooks/useProtectedPage'
 import { useUnProtectedPage } from '../../../hooks/useUnProtectedPage'
 
 
 
+
 function ListTripsPage() {
+    window.document.title = "LabeX | Viagens"
 
     useProtectedPage()
     useUnProtectedPage()
@@ -43,19 +45,21 @@ function ListTripsPage() {
     }
 
 
-    return getTrips ? (
-        <>
-            <TripsTitle>Viagens cadastradas:</TripsTitle>
-            <ListContainer>
+    return  (
+        <S.MainContainer>
+            <S.TripsTitle>Viagens cadastradas:</S.TripsTitle>
+            <S.ListContainer>
+                {getTrips.length === 0 ? <CircularIndeterminate /> : (
+                    <Fragment>
                 {getTrips.map(trip => {
                     return (
-                        <TripsContainer key={trip.id}>
-                            <NameTrip>
+                        <S.TripsContainer key={trip.id}>
+                            <S.NameTrip>
                                 {trip.name}
-                            </NameTrip>
-                            <InfoTrip>
+                            </S.NameTrip>
+                            <S.InfoTrip>
                                 <p>Planeta:
-                                        <br />
+                                    <br />
                                     {trip.planet}
                                 </p>
                                 <p>Data da viagem:
@@ -67,23 +71,25 @@ function ListTripsPage() {
                                     {trip.durationInDays} dias
                                     </p>
                                 <p>Descrição da viagem:
-                                        <br />
+                                    <br />
                                     {trip.description}
                                 </p>
-                                <ButtonDetails onClick={() => goToTripDetailsPage(trip.id)}>
-                                    DETALHES
-                                </ButtonDetails>
-                                <ButtonDelete onClick={() => deleteTrip(trip.id)}>
-                                    EXCLUIR
-                                </ButtonDelete >
-                            </InfoTrip>
-                        </TripsContainer>
+                                <S.ButtonsContainer>
+                                <S.ButtonDetails onClick={() => goToTripDetailsPage(trip.id)}>
+                                    Detalhes
+                                </S.ButtonDetails>
+                                <S.ButtonDelete onClick={() => deleteTrip(trip.id)}>
+                                    Excluir
+                                </S.ButtonDelete >
+                                </S.ButtonsContainer>
+                            </S.InfoTrip>
+                        </S.TripsContainer>  
                     )
                 })}
-            </ListContainer>
-        </>
-    ) : (
-        <CircularIndeterminate />
+                </Fragment>
+                )}
+            </S.ListContainer>
+        </S.MainContainer>  
     )
 }
 export default ListTripsPage

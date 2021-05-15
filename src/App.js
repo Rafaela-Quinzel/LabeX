@@ -2,8 +2,8 @@ import React from 'react'
 import Router from './routes/Router'
 import { BrowserRouter, Route } from 'react-router-dom'
 import './styles/global.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 
 
@@ -12,7 +12,6 @@ function App() {
     <BrowserRouter>
       <Route exact path={[
         '/',
-        '/home',
         '/login',
         '/viagens',
         '/inscricao/:id/apply',
@@ -21,10 +20,10 @@ function App() {
         '/detalhes_da_viagem/:id',
         '/criar_viagens'
       ]}>
-        <Header />
+        <Header/>
       </Route >
       <Router />
-      <Footer />
+      <Footer/>
     </BrowserRouter>
   )
 }

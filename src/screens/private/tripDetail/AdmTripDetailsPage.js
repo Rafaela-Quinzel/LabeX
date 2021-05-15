@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { DetailsContainer, DetailsTrip, Candidates, AcceptedCandidates, TitlePage, CandidatesContainer, AcceptedCandidatesContainer } from './styled'
-import { ButtonAcceptedCandidate, ButtonDeleteCandidate } from '../../../constants/buttons'
+import * as S from './styled'
 import { useProtectedPage } from '../../../hooks/useProtectedPage'
 import axios from 'axios'
 import { BASE_URL, axiosConfig } from '../../../constants/RequestConfig'
@@ -9,6 +8,8 @@ import { BASE_URL, axiosConfig } from '../../../constants/RequestConfig'
 
 
 function AdmTripDetailsPage() {
+    window.document.title = "LabeX | Detalhes das Viagens"
+
     const [trip, setTrip] = useState({})
     const [candidates, setCandidates] = useState([])
     const pathParams = useParams()
@@ -19,7 +20,7 @@ function AdmTripDetailsPage() {
 
     useEffect(() => {
         getTripDetails()
-    }, [])
+    })
 
 
     const getTripDetails = () => {
@@ -62,49 +63,50 @@ function AdmTripDetailsPage() {
     }
 
     return (
-        <DetailsContainer>
-            <TitlePage>Detalhes da Viagem:</TitlePage>
-            <DetailsTrip>
-                <br />
-                <CandidatesContainer>
+        <S.DetailsContainer>
+            <S.TitlePage>Detalhes da Viagem:</S.TitlePage>
+            <S.DetailsTrip>
+                <S.CandidatesContainer>
                     <h4>Candidaturas:</h4>
                     {trip.candidates && trip.candidates.map(candidate => {
                         return (
-                            <Candidates key={candidate.id}>
+                            <S.Candidates key={candidate.id}>
                                 <p>Nome: {candidate.name} </p>
                                 <p>Idade: {candidate.age} </p>
                                 <p>Profissão: {candidate.profession} </p>
                                 <p>País: {candidate.country} </p>
                                 <p>Motivo:
-                           <br />
+                                    <br />
                                     {candidate.applicationText}
                                 </p>
-                                <ButtonAcceptedCandidate onClick={() => aceptApplication(candidate.id, true)}>
-                                    ACEITAR
-                            </ButtonAcceptedCandidate>
-                                <ButtonDeleteCandidate onClick={() => rejectApplication(candidate.id, false)}>
-                                    RECUSAR
-                            </ButtonDeleteCandidate>
-                            </Candidates>
+                                <S.ButtonsContainer>
+                                    <S.ButtonAcceptedCandidate onClick={() => aceptApplication(candidate.id, true)}>
+                                        Aceitar
+                                    </S.ButtonAcceptedCandidate>
+                                    <S.ButtonDeleteCandidate onClick={() => rejectApplication(candidate.id, false)}>
+                                        Recusar
+                                    </S.ButtonDeleteCandidate>
+                                </S.ButtonsContainer>
+                            </S.Candidates>
                         )
                     })}
-                </CandidatesContainer>
-                <AcceptedCandidatesContainer>
+                </S.CandidatesContainer>
+                <S.AcceptedCandidatesContainer>
                     <h4>Candidatos Aprovados:</h4>
                     {trip.approved && trip.approved.map(user => {
                         return (
-                            <AcceptedCandidates key={user.id}>
+                            <S.AcceptedCandidates key={user.id}>
                                 <p>Nome: {user.name}</p>
                                 <p>Idade: {user.age}</p>
                                 <p>Profissão: {user.profession}</p>
                                 <p>País: {user.country}</p>
                                 <p>Motivo: {user.applicationText}</p>
-                            </AcceptedCandidates>
+                            </S.AcceptedCandidates>
                         )
                     })}
-                </AcceptedCandidatesContainer>
-            </DetailsTrip>
-        </DetailsContainer>
+                </S.AcceptedCandidatesContainer>
+            </S.DetailsTrip>
+        </S.DetailsContainer>
     )
 }
 export default AdmTripDetailsPage

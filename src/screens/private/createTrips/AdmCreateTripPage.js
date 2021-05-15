@@ -1,13 +1,13 @@
 import React from 'react'
-import { useForm } from '../../../hooks/useForm'
-import { CreateTripContainer } from './styled'
-import { ButtonSaveTrip } from '../../../constants/buttons'
-import { InputCreateTrip, TextAreaCreateTrip } from '../../../constants/inputs'
 import axios from 'axios'
+import * as S from './styled'
+import { useForm } from '../../../hooks/useForm'
 import { axiosConfig, BASE_URL } from '../../../constants/RequestConfig'
 
 
 function CreateTripPage() {
+    window.document.title = "LabeX | Criar Viagem"
+
     const [form, onChange] = useForm({
         email: '', 
         description: '',
@@ -44,20 +44,19 @@ function CreateTripPage() {
 
 
     return (
-        <CreateTripContainer>
-            <h3>Criar Viagem:</h3>
-            <form onSubmit={onSubmitForm}>
-                <InputCreateTrip 
+        <S.CreateTripContainer>
+            <S.Title>Criar Viagem:</S.Title>
+            <S.Form onSubmit={onSubmitForm}>
+                <S.InputCreateTrip 
                     value={form.name} 
                     onChange={onChange}
                     placeholder={'Nome'}
                     name={'name'}
                     type={'text'} 
                     pattern={'[A-Za-z]{3,}'}
-                    required 
+                    required
                 />
-                <br/>
-                <InputCreateTrip 
+                <S.InputCreateTrip 
                     value={form.planet} 
                     onChange={onChange}
                     placeholder={'Planeta'}
@@ -66,8 +65,7 @@ function CreateTripPage() {
                     pattern={'[A-Za-z]{3,}'}
                     required  
                 />
-                <br/>
-                <InputCreateTrip 
+                <S.InputCreateTrip 
                     value={form.date} 
                     onChange={onChange}
                     placeholder={'Data'}
@@ -76,8 +74,7 @@ function CreateTripPage() {
                     min={'2020-11-19'}
                     required
                 />
-                <br/>
-                <TextAreaCreateTrip 
+                <S.TextAreaCreateTrip 
                     value={form.description} 
                     onChange={onChange}
                     placeholder={'Descrição'} 
@@ -86,20 +83,18 @@ function CreateTripPage() {
                     maxLength='100'
                     required
                 />
-                <br/>
-                <InputCreateTrip
+                <S.InputCreateTrip
                     value={form.durationInDays} 
                     onChange={onChange} 
                     placeholder={'Duração em dias'} 
                     name={'durationInDays'}
                     type={'number'}
                  />
-                 <br/>
-                <ButtonSaveTrip onClick={createTrip}>
-                    SALVAR
-                </ButtonSaveTrip>
-                </form>
-        </CreateTripContainer>
+                <S.ButtonSaveTrip onClick={createTrip}>
+                    Salvar
+                </S.ButtonSaveTrip>
+                </S.Form>
+        </S.CreateTripContainer>
     )
 }
 export default CreateTripPage
