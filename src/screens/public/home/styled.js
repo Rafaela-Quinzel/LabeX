@@ -13,7 +13,6 @@ export const HomeContainer = styled.div`
 
 export const AnimationContainer = styled.div`
    margin: 0 auto;
-
 `
 
 export const Message = styled.h1`

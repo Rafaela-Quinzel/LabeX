@@ -15,7 +15,7 @@ export const LoginContainer = styled.div`
 `
 
 export const Title = styled.h3`
-  margin-bottom: 15%;
+  margin: 85px auto 40px auto;
 `
 
 export const Form = styled.form`
@@ -24,6 +24,14 @@ export const Form = styled.form`
   height: 100vh;
   width: 85vw;
   margin: 25px auto 0 auto;
+
+  @media screen and (min-width: 1024px) {
+    width: 50vw;
+  }
+
+  @media screen and (min-width: 1080px) {
+    width: 30vw;
+  }
 `
 
 export const InputLogin = styled.input`
@@ -33,15 +41,6 @@ export const InputLogin = styled.input`
   height: 8vh;
   margin-bottom: 15px;
   padding: 5px;
-
-  @media screen and (min-width: 1080px) {
-    border: none;
-    background-color: none;
-    width: 22vw;
-    height: 4vh;
-    margin: 8px;
-    padding: 5px;
-  }
 `
 
 export const ButtonSaveLogin = styled.button`
@@ -57,18 +56,17 @@ export const ButtonSaveLogin = styled.button`
   border-radius: 6px;
   text-transform: uppercase;
 
-  @media screen and (min-width: 1080px) {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    width: 12vw;
-    padding: 10px;
-    margin-top: 2%;
-    background-color: ${mainBlue};
-    border-color: ${mainBlue};
-    border-style: solid;
-    color: ${mainWhite};
-    border-radius: 6px;
+  @media screen and (min-width: 1024px) {
+    font-size: 1rem;
+    width: 20vw;
+    margin-top: 4%;
     cursor: pointer;
+  }
+
+  @media screen and (min-width: 1080px) {
+    font-size: 1rem;
+    width: 15vw;
+    margin-top: 4%;
   }
 `
 
