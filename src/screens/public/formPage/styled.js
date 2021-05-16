@@ -27,7 +27,7 @@ export const Form = styled.form`
   margin: 25px auto 0 auto;
 
   @media screen and (min-width: 600px) {
-    width: 52vw;
+    width: 60vw;
     font-size: 0.9rem;
   }
 
@@ -59,26 +59,25 @@ export const ButtonSubmit = styled.button`
   border-radius: 6px;
   text-transform: uppercase;
 
+  @media screen and (min-width: 600px) {
+    width: 30vw;
+    height: 6vh;
+  }
+
   @media screen and (min-width: 768px) {
     width: 35vw;
     height: 6vh;
   }
 
-  @media screen and (min-width: 600px) {
-    width: 25vw;
-    height: 6vh;
-  }
-
-  @media screen and (min-width: 1080px) {
-    width: 50vw;
+  @media screen and (min-width: 1024px) {
+    width: 20vw;
     padding: 10px;
     margin: 10px auto 0 auto;
     cursor: pointer;
   }
 
-  @media screen and (min-width: 1300px) {
-    width: 20vw;
-    font-size: 1rem;
+  @media screen and (min-width: 1080px) {
+    width: 14vw;
   }
 `
 

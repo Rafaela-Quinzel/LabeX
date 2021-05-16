@@ -31,6 +31,10 @@ export const Form = styled.form`
   width: 85vw;
   margin: 25px auto 0 auto;
 
+  @media screen and (min-width: 768px) {
+    width: 50vw;
+  }
+
   @media screen and (min-width: 1024px) {
     width: 50vw;
     margin: 40px auto 0 auto;
@@ -63,8 +67,13 @@ export const ButtonLogin = styled.button`
   border-radius: 6px;
   text-transform: uppercase;
 
+  @media screen and (min-width: 600px) {
+    width: 30vw;
+    height: 6vh;
+  }
+
   @media screen and (min-width: 768px) {
-    width: 35vw;
+    width: 20vw;
     height: 6vh;
   }
 

@@ -21,19 +21,11 @@ export const DetailsTrip = styled.div`
   height: 100vh;
   width: 80vw;
   margin: 10px auto 20px auto;
-  border: 1px solid red;
 
   @media screen and (min-width: 1024px) {
-    display: flex;
-    /* width: 100%; */
-  }
-
-  @media screen and (min-width: 1080px) {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 20px;
-    margin-bottom: 5%;
-    
+    flex-direction: row;
+    align-items: center;
+    width: 90vw;
   }
 `
 
@@ -42,6 +34,10 @@ export const TitlePage = styled.h2`
   text-align: center;
   margin-top: 3%;
   margin-bottom: 3%;
+
+  @media screen and (min-width: 1024px) {
+    margin: 100px auto 0 auto;
+  }
 `
 
 export const CandidatesContainer = styled.div`
@@ -52,7 +48,8 @@ export const CandidatesContainer = styled.div`
   height: 48vh;
 
   @media screen and (min-width: 1024px) {
-    width: 30%;
+    width: 48%;
+    height: 85%;
   }
  
   @media screen and (min-width: 1080px) {
@@ -79,7 +76,8 @@ export const AcceptedCandidatesContainer = styled.div`
   height: 48vh;
 
   @media screen and (min-width: 1024px) {
-    width: 30%;
+    width: 48%;
+    height: 85%;
   }
 
   @media screen and (min-width: 1080px) {
@@ -103,7 +101,7 @@ export const ButtonsContainer = styled.div`
   margin: 10px auto;
 
   @media screen and (min-width: 1024px) {
-    width: 90%;
+    width: 60%;
   }
 `
 

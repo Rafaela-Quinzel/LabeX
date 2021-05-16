@@ -113,7 +113,6 @@ export const NavContainer = styled.div`
 
 export const Menu = styled(Link)`
    font-family: 'Roboto', sans-serif;
-   cursor: pointer;
    text-decoration: none;
    text-align: center;
    border-bottom: 1px outset white;
@@ -126,19 +125,18 @@ export const Menu = styled(Link)`
 
 
    @media screen and (min-width: 1024px) {
-      font-family: 'Roboto', sans-serif;
       cursor: pointer;
       text-decoration: none;
       font-size: 1.2rem;
-      color: ${mainWhite};
       height: 20px;
       width: 150px;
       margin: 0 auto;
       border-bottom: none;
   
       &:hover {
-        border-bottom: 2px solid orange;
+        border-bottom: 1px solid orange;
         color: orange;
+        transition: .5s ease;
       }
    }
 `
@@ -146,7 +144,7 @@ export const Menu = styled(Link)`
 export const ButtonAdm = styled.button`
    font-family: 'Roboto', sans-serif;
    font-size: 18px;
-   width: 60vw;
+   width: 50vw;
    height: 5vh;
    margin: 0 auto 5px auto;
    background-color: ${mainOrange};
@@ -169,8 +167,11 @@ export const ButtonAdm = styled.button`
       &:hover {
          filter: brightness(0.8);
          transition: filter 0.5s;
-      }
-      
+      } 
+   }
+
+   @media screen and (min-width: 1080px) {
+      width: 10vw;
    }
 `
 
@@ -218,6 +219,7 @@ export const ButtonLogout = styled.button`
    @media screen and (min-width: 1024px) {
       width: 10vw;
       height: 5vh;
+      padding: 4px 0 0 0;
       cursor: pointer;
       text-align: center;
       
@@ -262,17 +264,11 @@ export const ButtonRegisterLogin = styled.button`
    text-transform: uppercase;
 
    @media screen and (min-width: 1080px) {
-      font-family: 'Roboto', sans-serif;
       font-size: 14px;
       width: 12vw;
       padding: 8px;
       margin-right: 15px;
-      background-color: ${mainOrange};
-      color: ${mainWhite};
-      border-radius: 6px;
-      border: 0;
       cursor: pointer;
-      text-transform: uppercase;
    }
 `
 
